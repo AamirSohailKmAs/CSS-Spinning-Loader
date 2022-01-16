@@ -1,0 +1,82 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  min-height: 100vh;
+  background: #333;
+  font-family: Tahoma, Geneva, Verdana, sans-serif;
+}
+.spinner{
+  width: 200px;
+  height: 200px;
+  border: 2px solid #000;
+  border-radius: 100%;
+  text-align: center;
+  color: #0f0;
+  line-height: 200px;
+  font-size: 40px;
+  font-weight: bold;
+  position: relative;
+  box-shadow: 0px 2px 4px #ffffff25;
+  text-shadow: 2px 2px 2px #000;
+  -webkit-text-stroke: 1px solid rgba(0, 0, 0, 0.5);
+}
+.spinner::before{
+  content: '';
+  width: 196px;
+  height: 196px;
+  box-shadow: 0px 2px 4px #ffffff25;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: linear-gradient(#0f0, #004d00 10%, #000 75%, #004d00);
+  animation: spin 2s cubic-bezier(0.6, 0.2, 0.4, 0.8) infinite;
+}
+.spinner::after{
+  content: '';
+  width: 160px;
+  height: 160px;
+  background: linear-gradient(to bottom, #3c3c3c, #101010);
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  border: 2px solid #000;
+  border-radius: 100%;
+  z-index: -1;
+}
+@keyframes spin {
+  0%{
+    transform: rotateX(0deg);
+  }
+  100%{
+    transform: rotate(1440deg);
+  }
+}
+.spinner.rainbow{
+  color: #fff;
+}
+.spinner.rainbow::before{
+  background: linear-gradient(#00f, #0f0 20%, #0ff 40%, #f00 60%, #f0f 80%, #ff0);
+}
+.spinner.blue{
+  color: #fff;
+}
+.spinner.blue::before{
+  background: linear-gradient(blue, darkblue 10%, #000 75%, darkblue);
+}
+.spinner.red{
+  color: #fff;
+}
+.spinner.red::before{
+background: linear-gradient(red, darkred 10%, #000 75%, darkred);}
+.spinner.yellow{
+  color: #fff;
+}
+.spinner.yellow::before{
+background: linear-gradient(yellow,  orange 10%, #000 75%, orange);}
